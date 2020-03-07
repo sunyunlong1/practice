@@ -1,0 +1,43 @@
+package com.example.model;
+
+import lombok.Builder;
+import lombok.Data;
+
+/**
+ * 统一返回json格式
+ */
+@Data
+@Builder
+public class Result {
+    /**
+     * 状态码
+     */
+    private Integer code;
+    /**
+     * 返回信息提示
+     */
+    private String message;
+    /**
+     * 返回的数据
+     */
+    private Object date;
+
+    public Result(Integer code, String message, Object date) {
+        this.code = code;
+        this.message = message;
+        this.date = date;
+    }
+
+    public Result(){
+
+    }
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "code=" + code +
+                ", message='" + message + '\'' +
+                ", date=" + date +
+                '}';
+    }
+}
