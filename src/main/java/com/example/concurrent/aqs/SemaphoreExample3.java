@@ -43,6 +43,6 @@ public class SemaphoreExample3 {
 
   private static void test(int threadNum) throws InterruptedException {
     log.info("{}",threadNum);
-    Thread.sleep(1000);
+    Thread.sleep(5);
   }
 }

@@ -15,12 +15,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CyclicBarrierExample {
 
-  private static CyclicBarrier barrier = new CyclicBarrier(5);
+  private static CyclicBarrier barrier = new CyclicBarrier(2);
 
   public static void main(String[] args) throws InterruptedException {
     ExecutorService executor = Executors.newCachedThreadPool();
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 2; i++) {
       final int threadNum = i;
       Thread.sleep(1000);
       executor.execute(()->{
@@ -39,5 +39,7 @@ public class CyclicBarrierExample {
     log.info("{} is ready",threadNum);
     barrier.await();
     log.info("{} continue",threadNum);
+    barrier.await();
+    log.info("{} is ready all",threadNum);
   }
 }
